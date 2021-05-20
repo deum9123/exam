@@ -1,0 +1,482 @@
+*{
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    --gray-color: #f8f8f8;
+    font-family: Arial;
+    color: #212529;
+    user-select: none;
+}
+html{
+    overflow-x: hidden;
+    touch-action: manipulation;
+}
+body{
+    text-align: center;
+}
+/* Скелет */
+.wrapper{
+    width: 100vw;
+    grid-template-rows: 55px 100px 2100px 75px;
+    display: grid;
+    position: relative;
+    margin: auto;
+}
+.header{
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: visible;
+    width: 100%;
+    background: var(--gray-color);
+}
+.menu{
+    background: white;
+    width: 100%;
+}
+.content{
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: visible;
+    width: 100%;
+}
+.footer{
+    background: white;
+    width: 100%;
+    background: var(--gray-color);
+}
+.inner_wrapper{
+    width: 1380px;
+    height: 100%;
+    margin: auto;
+}
+.conten_to_end{
+    justify-content: flex-end !important;
+}
+.content_to_center{
+    justify-content: center !important;
+}
+/* header */
+.header_wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.header_item{
+    display: flex;
+    font-weight: 400;
+    font-family: 'Fira Sans',sans-serif;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    font-size: 0.8rem;
+    cursor: pointer;
+    user-select: none;
+}
+.header_item .header_item_icon{
+    margin-right: 10px;
+    font-size: 22px;
+}
+/* menu */
+.menu_wrapper{
+    display: grid;
+    grid-template-columns: 530px 320px 530px;
+    position: relative;
+}
+.menu_item_wrapper{
+    display: grid;
+    grid-template-columns: 106px 69px 85px 85px 85px;
+    padding: 4% 0 4% 0;
+}
+.menu_item:last-child{
+    color: #ad0700;
+}
+.menu_item{
+    display: flex;
+    font-size: 1.067rem;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+.menu_item:hover, .menu_services_sign_in:hover, .menu_services_cart:hover{
+    background: var(--gray-color);
+}
+.menu_logo{
+    background: url(../img/logo.jpg);
+    background-repeat: no-repeat;
+    background-position-y: 30px;
+    background-position-x: 87px;  
+}
+.menu_services{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+}
+.menu_services_search{
+    width: 210px;
+    padding: 12px 30px 12px 15px;
+    background: #f8f8f8;
+    position: relative;
+}
+.menu_service_search_icon{
+    position: absolute;
+    right: 22px;
+    top: 15px;
+}
+.menu_service_search_input{
+    border: none;
+    background: #f8f8f8;
+}
+.menu_services_sign_in_icon{
+    margin-bottom: 5px;
+}
+.menu_services_sign_in_text{
+    margin-top: 5px;
+    font-family: 'Fira Sans',sans-serif;
+}
+.menu_services_cart{
+    width: 42px;
+    cursor: pointer;
+}
+.menu_services_sign_in{
+    width: 60px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+.submenu{
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    background-color: #f8f8f8;
+    border-bottom: none;
+    z-index: 1;
+    top: 133px;
+    padding-bottom: 20px;
+}
+.submenu_wrapper{
+    width: 1380px;
+    height: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.submenu_column{
+    display: grid;
+    grid-template-rows: 1.3fr 1fr 1fr 1fr 1fr ;
+}
+.submenu_item{
+    display: flex;
+    text-align: center;
+    color: #ccc;
+    align-items: center;
+    justify-content: left;
+    font-size: 13px;
+    color: #2e2323;
+    cursor: pointer;
+}
+.submenu_item:first-child{
+    font-weight: bold;
+    font-size: 16px;
+}
+#menu .active{
+    background: var(--gray-color);
+}
+/* content */
+/* carousel */
+.content_carousel_wrapper{
+    width: 100%;
+    height: 600px;
+    background: url(../img/banners/banner_1.jpg);
+    background-size: cover;
+    position: relative;
+    transition: all .5s linear;
+    
+}
+.content_carousel_wrapper_background{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to bottom, var(--gray-color), #fff);
+    height: 600px;
+}
+.content_carousel_arrow_left, .content_carousel_arrow_right{
+    width: 10%;
+    height: 100%;
+    text-align: center;
+    cursor: pointer;
+    color: black;
+    line-height: 600px;
+    position: absolute;
+    background: rgba(256, 256, 256, .6);
+    font-size: 40px;
+    font-weight: bold;
+    font-family: monospace;
+    opacity: 0;
+    transition: all 0.3s linear;
+    user-select: none;
+}
+.content_carousel_arrow_left:hover, .content_carousel_arrow_right:hover{
+    opacity: 1;
+}
+.content_carousel_arrow_left{
+    left: 0px;
+    transform: rotate(180deg);
+}
+.content_carousel_arrow_right{
+    right: 0px;
+}
+.content_carousel_text{
+    position: absolute;
+    top: 300px;
+    left: 93px;
+    color: #333;
+    font-weight: bold;
+    font-size: 86px;
+    pointer-events: none;
+}
+.content_goods_wrapper{
+    width: 100%;
+    height: 1000px;
+    display: grid;
+    grid-template-rows: 423px 423px 423px 423px;
+    grid-template-columns: 276px 276px 276px 276px;
+    row-gap: 40px;
+    column-gap: 92px;
+}
+.content_goods_item{
+    position: relative;
+    width: 272px;
+    height: 423px;
+    display: grid;
+    grid-template-rows: 351px 71px;
+    overflow: hidden;
+    transition: all .1s linear;
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+}
+.content_goods_item:hover .content_item_ater_img{
+    opacity: 1;
+}
+.content_goods_item:hover{
+    box-shadow: 0 0 26px #ccc;
+}
+.content_item_img{
+    background: url(../img/printed-chiffon-dress.jpg);
+    background-size: contain;
+    position: relative;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.content_goods_item_price{
+    color: #ad0700;
+    font-size: 1.3333333333rem;
+    font-style: normal;
+    font-weight: 700;
+    text-align: right;
+}
+.content_goods_item_category{
+    font-size: .8rem;
+    color: #acaaa6;
+    opacity: .8;
+    line-height: 1.2em;
+}
+.content_goods_item_name{
+    color: #2e2323;
+    font-size: 1.0666666667rem;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: none;
+}
+.content_item_desc{
+    display: grid;
+    grid-template-columns: 185px 1fr;
+    padding: 16px 0px 14px 0px;
+    pointer-events: none;
+}
+.content_item_desc_contain{
+    display: grid;
+    grid-template-rows: 17px 1fr;
+}
+.content_goods_item_category{
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+.content_goods_item_name{
+    display: flex;
+    align-items: center;
+}
+.content_item_ater_img{
+    background: url(../img/printed-chiffon-dress_1.jpg);
+    background-size: contain;
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+  /*  transition: all .3s linear;  */
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+}
+.content_devider{
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+    color: #2e2323;
+    font-weight: 700;
+    font-size: 3rem;
+}
+/* Footer */
+.footer_border{
+    border-top: 1px solid hsla(0,0%,63%,.25);
+}
+.footer_text{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #636363;
+    font-size: 1rem;
+}
+/* modal */
+.modal{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, .6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal_content{
+    width: 35%;
+    height: 20%;
+    background-color: white;
+    position: relative;
+    display: grid;
+    grid-template-rows: 30px 1fr 2fr;
+}
+.modal_content_exit{
+    padding: 15px 15px 0 0;
+    color: #2e2323;
+    font-weight: bold;
+    font-size: 35px;
+    text-align: right;
+    cursor: pointer;
+}
+.modal_content_message{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: #2e2323;
+    font-size: 35px;
+    font-weight: bold;
+}
+.d-none{
+    display: none !important;
+}
+.modal_content_form{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 65px 50px 55px 50px;
+    column-gap: 15px;
+    cursor: pointer;
+}
+.modal_button{
+    cursor: pointer;
+    height: 40px;
+}
+.modal input{
+    padding-left: 10px;
+    height: 40px;
+    align-content: center;
+}
+.invalidated_input{
+    border: solid 2px red;
+}
+.hamburger_menu{
+    display: none;
+}
+/* Adaptive */
+@media only screen and (max-width: 600px) 
+{
+    html{
+        
+    }
+    .wrapper{
+        grid-template-rows: 0px 155px auto 75px;
+    }
+    .inner_wrapper{
+        width: 100%;
+    }
+    .content_goods_wrapper{
+        grid-template-columns: 1fr 1fr;
+        height: initial;
+        grid-template-rows: auto;
+        padding: 0px 20px 0 20px;
+    }
+    .content_goods_item{
+        width: 100%;
+        height: 100%;
+        grid-template-rows: 5fr 1fr;
+    }
+    .content_item_img{
+        background-position: center;
+        padding-top: 100%;
+    }
+    .content_goods_item_category{
+        font-size: 2rem;
+    }
+    .content_goods_item_name{
+        font-size: 4rem;
+    }
+    .content_goods_item_price{
+        font-size: 4.3333rem;
+    }
+    .footer_text{
+        font-size: 2rem;
+    }
+    .menu_item_wrapper{
+        visibility: hidden;
+        pointer-events: none;
+    }
+    .menu_logo{
+        visibility: hidden;
+        pointer-events: none;
+    }
+    .content_item_ater_img{
+        display: none;
+    }
+    .menu_services{
+        font-size: 40px;
+    }
+    .menu_services div{
+        width: 150px;
+    }
+    .menu_services .menu_services_search{
+        display: none;
+    }
+    .menu_wrapper{
+        background-color: var(--gray-color);
+    }
+    .hamburger_menu{
+        display: block;
+        position: absolute;
+        top: 35px;
+        left: 35px;
+        font-size: 75px;
+    }
+    .modal{
+        display: none;
+    }
+}
+
+
+
+
